@@ -1,34 +1,28 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InteractionDetector : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactionDistance = 3f;
-    private PlayerInputActions inputActions;
-    private void Awake()
-    {
-        inputActions = new PlayerInputActions();
-    }
+    [SerializeField] private PlayerInputController playerInput;
 
     private void OnEnable()
     {
-        inputActions.Enable();
-        inputActions.Player.Interact.performed += OnInteract;
+        if (playerInput != null)
+        {
+            playerInput.InteractPressed += DetectInteraction;
+        }
     }
 
     private void OnDisable()
     {
-        inputActions.Player.Interact.performed -= OnInteract;
-        inputActions.Disable();
+        if (playerInput != null)
+        {
+            playerInput.InteractPressed -= DetectInteraction;
+        }
     }
 
-    private void OnDestroy()
-    {
-        inputActions.Dispose();
-    }
-
-    private void OnInteract(InputAction.CallbackContext context)
+    private void DetectInteraction()
     {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
