@@ -20,6 +20,8 @@ public class ResourceStorage : MonoBehaviour
         {
             resources[item] = amount;
         }
+
+        Debug.Log($"Added {amount} of '{item.name}' to storage. Total: {resources[item]}"); 
     }
 
     public int GetResourceAmount(ItemData item)
