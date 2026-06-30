@@ -5,6 +5,7 @@ public class InteractionDetector : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private PlayerInputController playerInput;
+    [SerializeField] private PlayerInteractor interactor;
 
     private void OnEnable()
     {
@@ -28,7 +29,7 @@ public class InteractionDetector : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
         {
             IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
-            interactable?.Interact();
+            interactable?.Interact(interactor);
         }
     }
 }
