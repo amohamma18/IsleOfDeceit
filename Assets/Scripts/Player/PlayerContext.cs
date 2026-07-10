@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteractor : MonoBehaviour
+public class PlayerContext : MonoBehaviour
 {
     [SerializeField] private ResourceStorage resourceStorage;
 

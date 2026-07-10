@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class TestInteractable : MonoBehaviour, IInteractable
 {
-    public void Interact(PlayerInteractor interactor)
+    public string InteractionText => "Interact";
+
+    public void Interact(PlayerContext playerContext)
     {
         Debug.Log("Interacted with " + gameObject.name);
     }

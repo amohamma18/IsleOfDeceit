@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact(PlayerInteractor interactor);
+    string InteractionText { get; }
+    void Interact(PlayerContext playerContext);
 }

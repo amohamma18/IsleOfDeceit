@@ -7,11 +7,6 @@ public class ResourceStorage : MonoBehaviour
 
     public void AddResource(ItemData item, int amount)
     {
-        if (item.itemType != ItemType.Resource)
-        {
-            Debug.LogWarning($"Item '{item.name}' is not a resource.");
-            return;
-        }
         if (resources.ContainsKey(item))
         {
             resources[item] += amount;

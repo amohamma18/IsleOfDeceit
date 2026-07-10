@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ResourcePickup : InteractablePickup
 {
-    public override void Interact(PlayerInteractor interactor)
+    public override void Interact(PlayerContext playerContext)
     {
-        interactor.ResourceStorage.AddResource(itemData, 1);
+        playerContext.ResourceStorage.AddResource(itemData, 1);
 
         RemovePickup();
     }
