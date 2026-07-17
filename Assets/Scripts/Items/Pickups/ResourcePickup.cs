@@ -4,7 +4,7 @@ public class ResourcePickup : InteractablePickup
 {
     public override void Interact(PlayerContext playerContext)
     {
-        playerContext.ResourceStorage.AddResource(itemData, 1);
+        playerContext.Inventory.AddItem(itemData, 1);
 
         RemovePickup();
     }

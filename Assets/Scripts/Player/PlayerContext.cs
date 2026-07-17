@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerContext : MonoBehaviour
 {
-    [SerializeField] private ResourceStorage resourceStorage;
+    [SerializeField] private Inventory inventory;
 
-    public ResourceStorage ResourceStorage => resourceStorage;
+    public Inventory Inventory => Inventory;
 }
