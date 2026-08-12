@@ -30,9 +30,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (characterController.isGrounded && verticalVelocity < 0)
         {
+            // The vertical velocity is set to a small negative value to ensure the player stays grounded and doesn't float above the ground for a brief moment.
             verticalVelocity = -2f;
         }
 
+        // Every update this applies gravity to the player's vertical velocity so their velocity upwards is reduced over time and they fall back down to the ground.
         verticalVelocity += gravity * Time.deltaTime;
 
         Vector3 gravityMovement = new Vector3(0, verticalVelocity, 0);

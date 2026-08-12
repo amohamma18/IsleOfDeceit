@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerContext : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryCoordinator inventoryCoordinator;
 
-    public Inventory Inventory => Inventory;
+    public InventoryCoordinator InventoryCoordinator => inventoryCoordinator;
 }

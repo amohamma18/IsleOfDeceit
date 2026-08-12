@@ -37,12 +37,14 @@ public class PlayerInteractionController : MonoBehaviour
         currentInteractable?.Interact(playerContext);
     }
 
+
     private void DetectInteractable()
     {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
         {
             currentInteractable = hit.collider.GetComponentInParent<IInteractable>();
+
         }
         else
         {

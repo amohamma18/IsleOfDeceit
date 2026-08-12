@@ -1,14 +1,21 @@
 using UnityEngine;
 
-public abstract class InteractablePickup : MonoBehaviour, IInteractable
+public class InteractablePickup : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected ItemData itemData;
+    [SerializeField] private ItemData itemData;
 
-    public virtual string InteractionText => "Interact";
+    [SerializeField] private int amount = 1;
 
-    public abstract void Interact(PlayerContext playerContext);
+    public string InteractionText => "Interact";
 
-    protected void RemovePickup()
+    public void Interact(PlayerContext playerContext)
+    {
+        playerContext.InventoryCoordinator.AddItem(itemData, amount);
+
+        RemovePickup();
+    }
+
+    private void RemovePickup()
     {
         Destroy(gameObject);
     }

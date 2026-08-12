@@ -838,10 +838,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 872215022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7ba103758a9e34b96fefd9bd4606f3, type: 3}
+  m_Script: {fileID: 11500000, guid: ce7bacac4bc7e2d46aa753f3fea6811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourcePickup
   itemData: {fileID: 11400000, guid: 7ef85655c3051be409f08b0e67ef71f0, type: 2}
+  amount: 1
 --- !u!65 &872215024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1086,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865c41f35f020b04abde1f97fc863f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  resourceStorage: {fileID: 1033808885}
+  inventoryCoordinator: {fileID: 1033808885}
 --- !u!114 &1033808885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,10 +1339,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1442989946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7ba103758a9e34b96fefd9bd4606f3, type: 3}
+  m_Script: {fileID: 11500000, guid: ce7bacac4bc7e2d46aa753f3fea6811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourcePickup
   itemData: {fileID: 11400000, guid: 7ef85655c3051be409f08b0e67ef71f0, type: 2}
+  amount: 1
 --- !u!1 &1699106164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,10 +1452,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919036287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7ba103758a9e34b96fefd9bd4606f3, type: 3}
+  m_Script: {fileID: 11500000, guid: ce7bacac4bc7e2d46aa753f3fea6811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourcePickup
   itemData: {fileID: 11400000, guid: 7ef85655c3051be409f08b0e67ef71f0, type: 2}
+  amount: 1
 --- !u!65 &1919036289
 BoxCollider:
   m_ObjectHideFlags: 0
