@@ -5,6 +5,8 @@ public class ToolStorage
 {
     private List<ItemData> items = new List<ItemData>();
 
+    public IReadOnlyList<ItemData> Items => items;
+
     public void AddItem(ItemData itemData, int amount)
     {
         for (int i = 0; i < amount; i++)

@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryCoordinator : MonoBehaviour
 {
     private ResourceStorage resourceStorage;
     private ToolStorage toolStorage;
-    // [SerializeField] private StoryItemStorage storyItemStorage; once we have storyItemStorage
+    private StoryItemStorage storyItemStorage;
+
+    [SerializeField] private EquipmentSystem equipmentSystem;
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class InventoryCoordinator : MonoBehaviour
                 toolStorage.AddItem(itemData, amount);
                 break;
             case ItemType.Story:
-                //storyItemStorage.AddItem(itemData, amount);
+                storyItemStorage.AddItem(itemData, amount);
                 break;
             default:
                 Debug.LogWarning($"Unhandled item type: {itemData.ItemType}");
@@ -62,7 +65,7 @@ public class InventoryCoordinator : MonoBehaviour
             case ItemType.Tool:
                 return toolStorage.GetItemAmount(itemData);
             case ItemType.Story:
-                //return storyItemStorage.GetItemAmount(itemData);
+                return storyItemStorage.GetItemAmount(itemData);
             default:
                 Debug.LogWarning($"Unhandled item type: {itemData.ItemType}");
                 return 0; // Default return if item type is unhandled
@@ -80,10 +83,27 @@ public class InventoryCoordinator : MonoBehaviour
             case ItemType.Tool:
                 return toolStorage.TryRemoveItem(itemData, amount);
             case ItemType.Story:
-                //return storyItemStorage.TryRemoveItem(itemData, amount);
+                return storyItemStorage.TryRemoveItem(itemData, amount);
             default:
                 Debug.LogWarning($"Unhandled item type: {itemData.ItemType}");
                 return false; // Default return if item type is unhandled
         }
     }
+
+    public bool EquipItem(ItemData itemData)
+    {
+        if (!IsItemDataValid(itemData)) { return false; }
+
+        if (GetItemAmount(itemData) <= 0)
+        {
+            Debug.LogError($"Item '{itemData.ItemName}' is not available in the inventory to equip.");
+            return false;
+        }
+
+        return equipmentSystem.TryEquipTool(itemData);
+    }
+
+    public IReadOnlyDictionary<ItemData, int> GetResourceItems() => resourceStorage.Items;
+    public IReadOnlyList<ItemData> GetToolItems() => toolStorage.Items;
+    public IReadOnlyDictionary<ItemData, int> GetStoryItems() => storyItemStorage.Items;
 }

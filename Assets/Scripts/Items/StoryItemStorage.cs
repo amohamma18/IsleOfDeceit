@@ -5,6 +5,8 @@ public class StoryItemStorage
 {
     private Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
 
+    public IReadOnlyDictionary<ItemData, int> Items => items;
+
     public void AddItem(ItemData itemData, int amount)
     {
         if (items.ContainsKey(itemData))

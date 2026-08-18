@@ -14,6 +14,10 @@ public class ItemData : ScriptableObject
 
     [SerializeField] private ItemType itemType;
 
+    [SerializeField] private ToolData toolData;
+
     public string ItemName => itemName;
     public ItemType ItemType => itemType;
+
+    public ToolData ToolData => toolData;
 }

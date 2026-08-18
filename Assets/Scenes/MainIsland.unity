@@ -646,6 +646,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &554744548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554744549}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554744549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554744548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1033808878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762916829
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +984,7 @@ GameObject:
   - component: {fileID: 1033808882}
   - component: {fileID: 1033808884}
   - component: {fileID: 1033808885}
+  - component: {fileID: 1033808886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -992,6 +1024,7 @@ Transform:
   m_Children:
   - {fileID: 404664444}
   - {fileID: 762916830}
+  - {fileID: 554744549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1033808879
@@ -1100,6 +1133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97497f0db834da644b1e5968a240831b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceStorage
+  equipmentSystem: {fileID: 0}
+--- !u!114 &1033808886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033808876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bde0ef8dd98d844b5c192160a71b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSystem
+  hand: {fileID: 554744549}
 --- !u!1 &1149432520
 GameObject:
   m_ObjectHideFlags: 0

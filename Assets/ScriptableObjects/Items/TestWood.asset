@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: TestWood
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Wood
+  itemType: 0
+  toolData: {fileID: 0}
