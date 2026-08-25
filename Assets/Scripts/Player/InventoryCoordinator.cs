@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,15 @@ public class InventoryCoordinator : MonoBehaviour
     private ToolStorage toolStorage;
     private StoryItemStorage storyItemStorage;
 
+    public event Action OnInventoryChanged;
+
     [SerializeField] private EquipmentSystem equipmentSystem;
 
     private void Awake()
     {
         resourceStorage = new ResourceStorage();
         toolStorage = new ToolStorage();
+        storyItemStorage = new StoryItemStorage();
     }
     private bool IsItemDataValid(ItemData itemData)
     {
@@ -52,6 +56,7 @@ public class InventoryCoordinator : MonoBehaviour
                 Debug.LogWarning($"Unhandled item type: {itemData.ItemType}");
                 break;
         }
+        OnInventoryChanged?.Invoke();
     }
 
     public int GetItemAmount(ItemData itemData)
@@ -75,22 +80,46 @@ public class InventoryCoordinator : MonoBehaviour
     public bool TryRemoveItem(ItemData itemData, int amount)
     {
         if (!IsItemDataValid(itemData) || !IsAmountValid(amount)) { return false; }
-
+        bool removed = false;
         switch (itemData.ItemType)
         {
             case ItemType.Resource:
-                return resourceStorage.TryRemoveItem(itemData, amount);
+                removed = resourceStorage.TryRemoveItem(itemData, amount);
+                break;
             case ItemType.Tool:
-                return toolStorage.TryRemoveItem(itemData, amount);
+                removed = toolStorage.TryRemoveItem(itemData, amount);
+                break;
             case ItemType.Story:
-                return storyItemStorage.TryRemoveItem(itemData, amount);
+                removed = storyItemStorage.TryRemoveItem(itemData, amount);
+                break;
             default:
                 Debug.LogWarning($"Unhandled item type: {itemData.ItemType}");
                 return false; // Default return if item type is unhandled
         }
+        if (removed) { OnInventoryChanged?.Invoke(); } 
+        return removed;
     }
 
-    public bool EquipItem(ItemData itemData)
+    public bool PerformItemAction(ItemData itemData)
+    {
+        if (!IsItemDataValid(itemData)) { return false; }
+        switch (itemData.Action)
+        {
+            case ItemAction.Equip:
+                return TryEquipItem(itemData);
+            case ItemAction.Use:
+                // TODO: Implement use logic here
+                return false;
+            case ItemAction.Examine:
+                // TODO: Implement examine logic here
+                return false;
+            default:
+                Debug.LogWarning($"Unhandled item action: {itemData.Action}");
+                return false;
+        }
+    }
+
+    public bool TryEquipItem(ItemData itemData)
     {
         if (!IsItemDataValid(itemData)) { return false; }
 

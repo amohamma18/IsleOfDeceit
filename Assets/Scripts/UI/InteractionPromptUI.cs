@@ -3,7 +3,7 @@ using TMPro;
 
 public class InteractionPromptUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text promptText;
+    [SerializeField] private TextMeshProUGUI promptText;
 
     private void Awake()
     {
