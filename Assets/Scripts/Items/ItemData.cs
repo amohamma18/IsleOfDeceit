@@ -11,6 +11,7 @@ public enum ItemAction
 {
     Use,
     Equip,
+
     Examine
 }
 
@@ -25,10 +26,14 @@ public class ItemData : ScriptableObject
 
     [SerializeField] private ToolData toolData;
 
+    [SerializeField] private Sprite icon;
+
     public string ItemName => itemName;
     public ItemType ItemType => itemType;
 
     public ItemAction Action => action;
 
     public ToolData ToolData => toolData;
+
+    public Sprite Icon => icon;
 }

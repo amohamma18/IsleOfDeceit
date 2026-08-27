@@ -25,24 +25,34 @@ public class EquipmentSystem : MonoBehaviour
         if (itemData.ToolData.ToolPrefab == null) { 
             Debug.LogError($"Tool '{itemData.ItemName}' has no tool prefab assigned in the EquipmentSystem.");
             return false; }
+        if (equippedTool == itemData)
+        {
+            Debug.LogWarning($"Tool '{itemData.ItemName}' is already equipped.");
+            return false;
+        }
 
         if (equippedTool != null || currentToolInstance != null) { UnequipTool(); }
+
 
         equippedTool = itemData;
 
         currentToolInstance = Instantiate(itemData.ToolData.ToolPrefab, hand);
+        currentToolInstance.transform.localPosition = Vector3.zero;
+        currentToolInstance.transform.localRotation = Quaternion.identity;
         Debug.Log($"Equipped tool: {itemData.ItemName}");
 
         return true;
     }
 
-    private void UnequipTool()
+    public void UnequipTool()
     {
         Destroy(currentToolInstance);
-
         currentToolInstance = null;
+
+        Debug.Log("Unequipped tool: " + equippedTool?.ItemName);
+
         equippedTool = null;
 
-        Debug.Log("Unequipped previous tool");
+
     }
 }

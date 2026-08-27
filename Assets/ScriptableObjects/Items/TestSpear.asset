@@ -16,3 +16,4 @@ MonoBehaviour:
   itemType: 1
   action: 1
   toolData: {fileID: 11400000, guid: 57288c9ec7ad1a248a88f1e2db584bce, type: 2}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

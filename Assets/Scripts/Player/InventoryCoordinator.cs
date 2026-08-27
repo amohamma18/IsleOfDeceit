@@ -107,6 +107,7 @@ public class InventoryCoordinator : MonoBehaviour
         {
             case ItemAction.Equip:
                 return TryEquipItem(itemData);
+
             case ItemAction.Use:
                 // TODO: Implement use logic here
                 return false;

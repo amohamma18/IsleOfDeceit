@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemAmountText;
     [SerializeField] private Image itemIconImage;
 
@@ -24,13 +23,18 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
     {
         if (slotData != null)
         {
-            itemNameText.text = slotData.ItemData.ItemName;
-            itemAmountText.text = slotData.Amount.ToString();
-            //itemIconImage.sprite = slotData.ItemData.Icon;
+            if (slotData.Amount > 1)
+            {
+                itemAmountText.text = slotData.Amount.ToString();
+            }
+            else
+            {
+                itemAmountText.text = string.Empty;
+            }
+            itemIconImage.sprite = slotData.ItemData.Icon;
         }
         else
         {
-            itemNameText.text = string.Empty;
             itemAmountText.text = string.Empty;
             itemIconImage.sprite = null;
         }
