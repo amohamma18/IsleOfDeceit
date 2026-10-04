@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53371452227dc2446a72cd40614a74f4, type: 3}
+  m_Name: AxeToolData
+  m_EditorClassIdentifier: Assembly-CSharp::ToolData
+  range: 2
+  damage: 5
+  useCooldown: 0.2
+  toolPrefab: {fileID: 121126653667422443, guid: cdcb42cc9a3f4f34e8185f9f502c88be, type: 3}

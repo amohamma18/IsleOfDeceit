@@ -16,6 +16,8 @@ public class PlayerInputController : MonoBehaviour
 
     public event Action InventoryToggled;
 
+    public event Action AttackPressed;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -35,6 +37,8 @@ public class PlayerInputController : MonoBehaviour
 
         inputActions.Player.Jump.performed += OnJump;
 
+        inputActions.Player.Attack.performed += OnAttack;
+
         inputActions.Global.Inventory.performed += OnInventoryToggle;
     }
 
@@ -51,6 +55,8 @@ public class PlayerInputController : MonoBehaviour
         inputActions.Player.Interact.performed -= OnInteract;
 
         inputActions.Player.Jump.performed -= OnJump;
+
+        inputActions.Player.Attack.performed -= OnAttack;
 
         inputActions.Global.Inventory.performed -= OnInventoryToggle;
 
@@ -95,6 +101,11 @@ public class PlayerInputController : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         JumpPressed?.Invoke();
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        AttackPressed?.Invoke();
     }
 
     private void OnInventoryToggle(InputAction.CallbackContext context)

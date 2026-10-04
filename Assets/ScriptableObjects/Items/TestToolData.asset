@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestToolData
   m_EditorClassIdentifier: Assembly-CSharp::ToolData
   range: 2
-  damage: 10
-  useCooldown: 0
-  toolPrefab: {fileID: 4175511412609745916, guid: 2924135d3de6a48428ec4402a32d470e, type: 3}
+  damage: 5
+  useCooldown: 0.1
+  toolPrefab: {fileID: 2467063050109126382, guid: 54696ec0b39b0ea4b8e15c84bf2fcc5a, type: 3}

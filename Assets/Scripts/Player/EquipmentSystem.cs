@@ -24,6 +24,11 @@ public class EquipmentSystem : MonoBehaviour
         return equippedTool == itemData;
     }
 
+    public ToolData EquippedToolData
+    {
+        get { return equippedTool?.ToolData; }
+    }
+
     public bool TryEquipTool(ItemData itemData)
     {
         if (hand == null) { 
