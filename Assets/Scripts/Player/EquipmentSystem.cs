@@ -8,6 +8,22 @@ public class EquipmentSystem : MonoBehaviour
 
     private GameObject currentToolInstance;
 
+    public bool TryToggleTool(ItemData itemData)
+    {
+        if (equippedTool == itemData)
+        {
+            UnequipTool();
+            return true;
+        }
+
+        return TryEquipTool(itemData);
+    }
+
+    public bool IsEquipped(ItemData itemData)
+    {
+        return equippedTool == itemData;
+    }
+
     public bool TryEquipTool(ItemData itemData)
     {
         if (hand == null) { 

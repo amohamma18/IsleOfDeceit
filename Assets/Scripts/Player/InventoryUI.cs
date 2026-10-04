@@ -157,8 +157,18 @@ public class InventoryUI : MonoBehaviour
             selectedItemAmountText.text = string.Empty;
         }
         selectedItemIcon.sprite = slotData.ItemData.Icon;
-        actionButtonText.text = slotData.ItemData.Action.ToString();
+        actionButtonText.text = GetActionButtonText(slotData.ItemData);
         itemDetails.gameObject.SetActive(true);
+    }
+
+    private string GetActionButtonText(ItemData itemData)
+    {
+        if (itemData == null) { return string.Empty; }
+        if (itemData.Action == ItemAction.Equip && inventoryCoordinator.IsItemEquipped(itemData))
+        {
+            return "Unequip";
+        }
+        return itemData.Action.ToString();
     }
 
     private void HandleActionButtonClicked()
@@ -168,7 +178,10 @@ public class InventoryUI : MonoBehaviour
         if (!inventoryCoordinator.PerformItemAction(selectedSlotData.ItemData))
         {
             Debug.LogWarning($"Action '{selectedSlotData.ItemData.Action}' could not be performed for item '{selectedSlotData.ItemData.ItemName}'.");
+            return;
         }
+
+        actionButtonText.text = GetActionButtonText(selectedSlotData.ItemData);
     }
 
     private void DisableItemDetails()

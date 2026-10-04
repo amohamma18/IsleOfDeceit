@@ -59,6 +59,12 @@ public class InventoryCoordinator : MonoBehaviour
         OnInventoryChanged?.Invoke();
     }
 
+    public bool IsItemEquipped(ItemData itemData)
+    {
+        if (!IsItemDataValid(itemData)) { return false; }
+        return equipmentSystem.IsEquipped(itemData);
+    }
+
     public int GetItemAmount(ItemData itemData)
     {
         if (!IsItemDataValid(itemData)) { return 0; }
@@ -106,7 +112,7 @@ public class InventoryCoordinator : MonoBehaviour
         switch (itemData.Action)
         {
             case ItemAction.Equip:
-                return TryEquipItem(itemData);
+                return TryToggleEquipItem(itemData);
 
             case ItemAction.Use:
                 // TODO: Implement use logic here
@@ -120,7 +126,7 @@ public class InventoryCoordinator : MonoBehaviour
         }
     }
 
-    public bool TryEquipItem(ItemData itemData)
+    public bool TryToggleEquipItem(ItemData itemData)
     {
         if (!IsItemDataValid(itemData)) { return false; }
 
@@ -130,7 +136,7 @@ public class InventoryCoordinator : MonoBehaviour
             return false;
         }
 
-        return equipmentSystem.TryEquipTool(itemData);
+        return equipmentSystem.TryToggleTool(itemData);
     }
 
     public IReadOnlyDictionary<ItemData, int> GetResourceItems() => resourceStorage.Items;
