@@ -178,7 +178,7 @@ git clone https://github.com/amohamma18/IsleOfDeceit.git
 | 💭 | Psychological horror sequences and islander encounters |
 | 💭 | Expanded survival and exploration systems |
 
-**Status:** ✅ Done · 📋 Planned · 💭 Future ideas
+**Status:** ✅ Done | 📋 Planned | 💭 Future ideas
 ## 📂 Where to look in the code
 
 | Responsibility | Files |
@@ -195,4 +195,4 @@ git clone https://github.com/amohamma18/IsleOfDeceit.git
 
 ## 📬 Contact
 
-**Asifzaman Mohammad** · [LinkedIn](https://www.linkedin.com/in/asifzaman-mohammad-456714285) · [GitHub](https://github.com/amohamma18) · [amohamma2000@gmail.com](mailto:amohamma2000@gmail.com)
+**Asifzaman Mohammad** | [LinkedIn](https://www.linkedin.com/in/asifzaman-mohammad-456714285) | [GitHub](https://github.com/amohamma18) | [amohamma2000@gmail.com](mailto:amohamma2000@gmail.com)
